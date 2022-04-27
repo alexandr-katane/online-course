@@ -1,0 +1,91 @@
+.section {
+    @include responsive-size(padding-top, 200, 80, 1800);
+}
+
+.text {
+    font-size: 16px;
+    line-height: 150%;
+    color: #FFFFFF;
+    font-weight: 400;
+    @include responsive-size(font-size, 16, 14, $maxWidthContainer);
+
+    &_gray {
+        font-weight: 400;
+        opacity: 0.4;
+        color: #fff;
+        line-height: 150%;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+
+    &__img {
+        margin-right: 20px;
+        transform: translate(0px, 190%) rotate(360deg);
+        opacity: 0;
+        transition: all 0.8s ease 0s;
+
+        &._active {
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 1;
+        }
+
+        @media (max-width:$md3+px) {
+            svg {
+                transform: scale(0.7);
+            }
+        }
+    }
+
+    &__text {
+        font-weight: 700;
+        line-height: 140%;
+        font-size: 48px;
+        color: #FFFFFF;
+        @include responsive-size(font-size, 48, 32, $maxWidthContainer);
+
+        transform: translate(0px, 190%);
+        opacity: 0;
+        transition: all 0.8s ease 0s;
+
+        &._active {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+}
+
+
+._ibg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    img {
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body.ie {
+    ._ibg {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    ._ibg img {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,154 @@
+.footer {
+    @include responsive-size(margin-bottom, 200, 80, $maxWidthContainer);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__title {
+        @include responsive-size(margin-bottom, 30, 15, $maxWidthContainer);
+    }
+
+    &__text {
+        opacity: 0.5;
+        max-width: 411px;
+        @include responsive-size(margin-bottom, 60, 30, $maxWidthContainer);
+    }
+
+    &__form {
+        @include responsive-size(margin-bottom, 40, 30, $maxWidthContainer);
+    }
+
+    &__socials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__social {
+        position: relative;
+        @include responsive-size(width, 50, 40, $maxWidthContainer);
+        @include responsive-size(height, 50, 40, $maxWidthContainer);
+        transition: all 0.3s ease 0s;
+        border-radius: 50%;
+        background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+
+        transform: scale(0);
+        opacity: 0;
+        transition: all 0.8s ease 0s;
+
+        &._active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        @media (any-hover:hover) {
+            &:hover {
+                background: linear-gradient(94.26deg, #C89AFC 9.51%, #4736b3 90.23%);
+                transform: scale(1.1);
+            }
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.form-contact {
+
+    &__container {}
+
+    &__inputs {}
+
+    &__button {
+        margin-left: -40px;
+        height: 44px;
+        background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+        border-radius: 30px;
+        position: relative;
+        z-index: 2;
+        @include responsive-size(width, 160, 110, $maxWidthContainer);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(94.78deg, #b53930 11.19%, #230524 93.72%);
+            opacity: 0;
+            border-radius: 30px;
+            transition: all 0.3s ease 0s;
+        }
+
+        span {
+            font-weight: 700;
+            @include responsive-size(font-size, 16, 14, $maxWidthContainer);
+            line-height: 150%;
+            text-align: center;
+            color: #FFFFFF;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        @media (any-hover:hover) {
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.inputs {
+    &__input-container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.input-container {
+    position: relative;
+
+    &._error {
+        .input {
+            box-shadow: 0 0 5px #c0301c;
+        }
+    }
+}
+
+.input {
+    height: 44px;
+    background: #FFFFFF;
+    opacity: 0.25;
+    border-radius: 50px 0px 0px 50px;
+    padding: 11px 60px 11px 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    @include responsive-size(width, 353, 220, $maxWidthContainer);
+}
+
+.form__error {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: red;
+}
